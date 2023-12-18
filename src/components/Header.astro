@@ -1,0 +1,35 @@
+---
+import ThemeToggle from "./ThemeToggle.jsx";
+import { tempVar } from "../stores/Settings";
+import { SITE_TITLE } from "../consts";
+import SearchBar from "./SearchBar";
+
+const { geez } = Astro.props;
+---
+
+<script is:inline>
+const theme = localStorage.getItem("theme");
+// document.documentElement.classList.add("dark");
+if (
+    (theme === "auto" &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches) ||
+    theme === "dark"
+) {
+    document.documentElement.classList.add("dark");
+} else {
+    document.documentElement.classList.remove("dark");
+}
+</script>
+<header>
+    <nav class="grid grid-flow-col justify-stretch ">
+        <h1><a href="/">MTG Card Search Site!</a></h1>
+        <SearchBar client:visible />
+        <ThemeToggle client:visible />
+    </nav>
+</header>
+
+<style>
+    nav {
+        display: flex;
+    }
+</style>
