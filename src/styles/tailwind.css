@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.cardImage {
+    border-radius: 4.75% / 3.5%;
+}
+
+.cardWidth {
+    width: calc(0.714 * 5rem);
+}

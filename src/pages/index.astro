@@ -1,7 +1,11 @@
 ---
 import Header from "../components/Header.astro";
 import { SITE_TITLE } from "../consts";
-import SearchBar from "../components/SearchBar"
+import SearchBar from "../components/SearchBar";
+import CardImage from "../components/CardImage";
+import CardStackedVerticalList from "../components/CardStackedVerticalList";
+import TempSearchResults from "../components/TempSearchResults";
+import BigCardAndSearchResults from "../components/BigCardAndSearchResults";
 ---
 
 <html lang="en">
@@ -12,9 +16,23 @@ import SearchBar from "../components/SearchBar"
 		<meta name="generator" content={Astro.generator} />
 		<title>Do you even mtg??</title>
 	</head>
-	<body class="bg-slate-200 dark:bg-slate-600 w-3/4 m-auto mt-4">
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut! 🦵🏼</h1>
+	<body
+		class="bg-light_secondary dark:bg-dark_secondary w-full h-max min-h-screen dark:text-slate-300"
+	>
+			<div
+				class="fixed -z-10 bg-gradient-to-l from-transparent overflow-clip from-20% via-light_accent dark:via-dark_accent opacity-70 top-0 right-0 h-[300vh] w-3/5 transform -translate-y-1/2 translate-x-1/6 -rotate-45"
+			>
+			</div>
+
+			<Header title={SITE_TITLE} />
+
+		<main class="flex justify-center self-center">
+			<div class="w-4/5">
+			<!-- <CardStackedVerticalList client:load cards={[{imageUrl: "https://cards.scryfall.io/large/front/0/0/00cb17a0-5a13-4d02-b7fb-f99531bc8ca5.jpg?1599710396"}, {imageUrl: "https://cards.scryfall.io/large/front/0/0/00cb17a0-5a13-4d02-b7fb-f99531bc8ca5.jpg?1599710396"}]} /> -->
+			<!-- <CardImage client:load imageUrl={"https://cards.scryfall.io/large/front/0/0/00cb17a0-5a13-4d02-b7fb-f99531bc8ca5.jpg?1599710396"}>Uhhh</CardImage> -->
+			<TempSearchResults client:load />
+			<BigCardAndSearchResults client:visible />
+			</div>
+		</main>
 	</body>
 </html>
