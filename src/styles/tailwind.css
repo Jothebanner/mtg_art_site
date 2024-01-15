@@ -9,3 +9,47 @@
 .cardWidth {
     width: calc(0.714 * 5rem);
 }
+
+:root {
+    --surface_100: #f4f3f2;
+	--surface_200: #e1e1e1;
+	--surface_300: #c8c8c8;
+	--surface_400: #b4b4b4;
+	--surface_500: #9f9f9f;
+	--surface_600: #8b8b8b;
+
+    --accent: #548F54;
+}
+
+.surface_100 {
+    background-color: var(--surface_100);
+}
+.surface_200 {
+    background-color: var(--surface_200);
+}
+.surface_300 {
+    background-color: var(--surface_300);
+}
+.surface_400 {
+    background-color: var(--surface_400);
+}
+.surface_500 {
+    background-color: var(--surface_500);
+}
+
+.hov_accent:hover {
+    background-color: var(--accent);
+}
+
+.accent {
+    background-color: var(--accent);
+}
+
+.dark {
+    --surface_100: #121212;
+    --surface_200: #282828;
+	--surface_300: #3f3f3f;
+	--surface_400: #575757;
+	--surface_500: #717171;
+	--surface_600: #8b8b8b;
+}

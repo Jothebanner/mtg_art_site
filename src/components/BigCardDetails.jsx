@@ -9,9 +9,9 @@ const BigCardDetails = (props) => {
     // const [bigCardUrl, setBigCardUrl] = createSignal('');
 
     const simpleFields = ['color_identity', 'colors', 'mana_cost', 'type_line'];
-    const arrayFields = ['cmc', 'power', 'toughness', ];
-    const namedObjectFields = [{'fieldTitle': 'Colors', 'fieldName': 'colors'}, {'fieldTitle': 'Mana Cost', 'fieldName': 'mana_cost'}, {'fieldTitle': 'Type', 'fieldName': 'type_line'}, {'fieldTitle': 'Color Identity', 'fieldName': 'color_identity'}]
-    const namedObjectArrayFields = [{'fieldTitle': 'Converted Mana Cost', 'fieldName': 'cmc'}, {'fieldTitle': 'Power', 'fieldName': 'power'}, {'fieldTitle': 'Toughness', 'fieldName': 'toughness'}]
+    const arrayFields = ['cmc', 'power', 'toughness',];
+    const namedObjectFields = [{ 'fieldTitle': 'Colors', 'fieldName': 'colors' }, { 'fieldTitle': 'Mana Cost', 'fieldName': 'mana_cost' }, { 'fieldTitle': 'Type', 'fieldName': 'type_line' }, { 'fieldTitle': 'Color Identity', 'fieldName': 'color_identity' }]
+    const namedObjectArrayFields = [{ 'fieldTitle': 'Converted Mana Cost', 'fieldName': 'cmc' }, { 'fieldTitle': 'Power', 'fieldName': 'power' }, { 'fieldTitle': 'Toughness', 'fieldName': 'toughness' }]
 
 
     // const cardFromStore = useStore($bigCard);
@@ -32,11 +32,14 @@ const BigCardDetails = (props) => {
     // })
 
     return (
-        <div class="bg-light dark:bg-slate-700 backdrop-opacity-50 p-4">
-            <div>{props.card['name']}</div>
-            <div class='flex'>
-                <CardImage imageUrl={props.card['normal'][0]} />
-                <div class='flex flex-col pl-4'>
+        <div class="p-4">
+            <div class='flex flex-col md:flex-row'>
+                <div class="md:w-2/5">
+                    <CardImage imageUrl={props.card['normal'][0]} />
+                </div>
+                <div class='flex flex-col p-4 rounded ml-4 md:w-3/5 border shadow-lg'>
+
+                    <div class="text-xl font-bold self-center">{props.card['name']}</div>
                     <For each={namedObjectArrayFields}>
                         {(field) =>
                             props.card[field['fieldName']] != undefined ?

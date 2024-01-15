@@ -9,24 +9,35 @@ export default {
 				'200': '2',
 				'250': '2.5',
 				'300': '3',
+				'400': '4',
 			},
 			colors: {
 				dark_primary: '#151615', // Your primary color
-				// dark_secondary: '#282728', // Your secondary color
 				dark_secondary: '#24202A',
-				dark_accent: '#3f3f3f', // Your accent color
+				dark_accent: 'var(--accent)',
 				light_primary: '#3B82F6',
 				light_secondary: '#60a5fa',
 				light_accent: '#b7a2fb',
 			},
 			backgroundColor: {
-				light: '#3B82F6',
-				light_secondary: '#60a5fa',
-				dark: '#151615',
-				// dark_secondary: '#282728',
-				dark_secondary: '#24202A',
+
+				/** SURFACE COLORS */
+				surface_100:  'var(--surface_100)',
+				surface_200:  'var(--surface_200)',
+				surface_300:  'var(--surface_300)',
+				surface_400:  'var(--surface_400)',
+				surface_500:  'var(--surface_500)',
+				surface_600:  'var(--surface_600)',
+
+				/** DARK THEME MIXED SURFACE COLORS */
+				dark_color_surface_mixed_100:  '#1a1625',
+				dark_color_surface_mixed_200:  '#2f2b3a',
+				dark_color_surface_mixed_300:  '#46424f',
+				dark_color_surface_mixed_400:  '#5e5a66',
+				dark_color_surface_mixed_500:  '#76737e',
+				dark_color_surface_mixed_600:  '#908d96',
 			},
 		},
 	},
-	plugins: [],
+plugins: [],
 }

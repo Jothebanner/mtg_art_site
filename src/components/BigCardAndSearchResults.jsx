@@ -14,7 +14,7 @@ const BigCardAndSearchResults = (props) => {
 
     return (
         <div class='flex '>
-            <div class='w-4/5'>
+            <div class='w-4/5 bg-surface_200 rounded-2xl '>
                 <Show when={mainCard()['name'] != undefined} >
                     <BigCardDetails card={mainCard()} />
                 </Show>
