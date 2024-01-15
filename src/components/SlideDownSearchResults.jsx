@@ -7,7 +7,7 @@ const SlideDownSearchResults = (props) => {
     const sideCards = useStore($slideCards);
 
     return (
-        <div>
+        <div class='py-4 pl-4'>
             <CardStackedVerticalList cards={sideCards()} singleCol={true} />
         </div>
     );

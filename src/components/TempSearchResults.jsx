@@ -33,7 +33,7 @@ const TempSearchResults = () => {
     // console.log(cards()[0]);
     return (
         <Show when={cards()[0] != undefined && showSearchResults()}>
-            <div tabIndex={2} class='bg-light_primary dark:bg-dark_primary dark:bg-opacity-50 bg-opacity-50 w-3/4 m-auto rounded-b p-2 pt-0'
+            <div tabIndex={2} class='dark:bg-opacity-50 bg-opacity-50 w-3/4 m-auto rounded-b p-2 pt-0'
                 // track if user is using the search results
                 onfocusin={() => setResultsFocused(true)}
                 onFocusOut={() => setResultsFocused(false)}

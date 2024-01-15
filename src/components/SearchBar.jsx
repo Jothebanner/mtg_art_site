@@ -49,7 +49,7 @@ const SearchBar = () => {
 
     return (
         <div class="inline-flex grow justify-center">
-            <input class="h-10 w-full p-4 focus:box-border bg-transparent dark:bg-dark_secondary border-gray-400 border rounded focus:border-transparent outline outline-0 focus:outline-0 focus:border-2 focus:border-green-500 transition-all"
+            <input class="h-10 w-full p-4 focus:box-border bg-surface_200 border-gray-400 border rounded focus:border-transparent outline outline-0 focus:outline-0 focus:border-2 focus:border-green-500 transition-all"
                 placeholder="Search for cards..."
                 onInput={(e) => handleInput(e)}
                 onFocus={(e) => handleInput(e)}
