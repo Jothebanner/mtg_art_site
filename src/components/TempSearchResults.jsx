@@ -3,7 +3,6 @@ import CardStackedVerticalList from "./CardStackedVerticalList";
 import { useStore } from "@nanostores/solid";
 import { $searchbarFocused, $slideCards, $tempCards } from "../stores/Cards";
 
-
 const TempSearchResults = () => {
     const [showSearchResults, setShowSearchResults] = createSignal(false);
     const [mouseOverResults, setMouseOverResults] = createSignal(false);
@@ -25,7 +24,7 @@ const TempSearchResults = () => {
             setShowSearchResults(false);
     })
 
-    const reset = () => {
+    const resetResultsState = () => {
         setMouseOverResults(false);
         setResultsFocused(false);
     }
@@ -40,7 +39,7 @@ const TempSearchResults = () => {
                 onmouseenter={() => setMouseOverResults(true)}
                 onMouseLeave={() => setMouseOverResults(false)}
             >
-                <CardStackedVerticalList cards={cards()} handleCardClick={() => {reset(); $slideCards.set($tempCards.get()); }} />
+                <CardStackedVerticalList cards={cards()} handleCardClick={() => {resetResultsState(); $slideCards.set($tempCards.get()); }} />
             </div>
         </Show>
     );
