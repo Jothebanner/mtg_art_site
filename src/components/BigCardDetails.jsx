@@ -22,7 +22,6 @@ const BigCardDetails = (props) => {
 
     createEffect(() => {
         // if the card changes then reset the selected image
-        console.log(props.card);
         setSelectedImage(props.card['normal'][0]);
     })
 
@@ -37,7 +36,6 @@ const BigCardDetails = (props) => {
 
         const res = await fetch(uri);
         const rulingsJson = await res.json();
-        console.log(rulingsJson['data']);
         setRulings(rulingsJson['data']);
     }
 
@@ -76,7 +74,7 @@ const BigCardDetails = (props) => {
                             </Show>
                         }
                     </For>
-                    <Show when={props.card['oracle_text'] != undefined && props.card['flavor_text'] != undefined}>
+                    <Show when={props.card['oracle_text'] != undefined || props.card['flavor_text'] != undefined}>
 
                     <div class='my-2 py-2 border-t border-b'>
                         <Show when={props.card['oracle_text'] != undefined}>
@@ -105,8 +103,6 @@ const BigCardDetails = (props) => {
                                 </div>}
                         </For>
                     </Show>
-                    {/* <div>Converted Mana Cost: {props.card['cmc']}</div>
-                    <div>Mana Cost: {props.card['mana_cost']}</div> */}
                 </div>
 
                 <Show when={rulings() != null && rulings()[0] != undefined}>

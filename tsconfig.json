@@ -1,10 +1,19 @@
 {
-  "extends": "astro/tsconfigs/base",
-  "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
-    // generate d.ts files
-    // also I should check out JSDOCs
-    "declaration": true,
-  }
+    "compilerOptions": {
+        "module": "NodeNext",
+        "target": "ESNext",
+        "moduleResolution": "NodeNext",
+        /* Base Options: */
+        // "esModuleInterop": true,
+        // "skipLibCheck": true,
+        "allowJs": true,
+        // "resolveJsonModule": true,
+        // "moduleDetection": "force",
+        // "isolatedModules": true,
+        /* Strictness */
+        "strict": true,
+        "noUncheckedIndexedAccess": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": ["./astro.config.mjs", "./dist", "./src/components/CardSizes.js", "./src/consts.js"],
 }
