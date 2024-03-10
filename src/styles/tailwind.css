@@ -8,6 +8,7 @@
 
 .cardWidth {
     width: calc(0.714 * 5rem);
+    min-width: calc(0.714 * 5rem);
 }
 
 :root {

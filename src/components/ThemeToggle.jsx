@@ -2,7 +2,6 @@ import { createEffect, createSignal, onMount } from "solid-js"
 import { useStore } from "@nanostores/solid";
 import { tempVar } from "../stores/Settings";
 
-
 const ThemeToggle = () =>
 {
     const[bean, setBean] = createSignal("heck");
@@ -18,7 +17,7 @@ const ThemeToggle = () =>
         {
             document.documentElement.classList.remove('dark');
         }
-    })
+    });
     
     return ( 
         <div class="inline-flex justify-center">
