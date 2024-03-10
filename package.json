@@ -10,17 +10,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/lit": "^4.0.0",
-    "@astrojs/solid-js": "^3.0.2",
-    "@astrojs/tailwind": "^5.0.2",
+    "@astrojs/solid-js": "^3.0.3",
+    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/vercel": "^7.1.1",
     "@nanostores/persistent": "^0.9.1",
     "@nanostores/solid": "^0.4.2",
     "@webcomponents/template-shadowroot": "^0.2.1",
     "astro": "^3.6.4",
-    "lit": "^3.1.0",
+    "bcryptjs": "^2.4.3",
+    "mongoose": "^8.1.1",
     "nanostores": "^0.9.5",
     "node-fetch": "^3.3.2",
-    "solid-js": "^1.4.3",
-    "tailwindcss": "^3.0.24"
+    "solid-js": "^1.8.14",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.20"
   }
 }
