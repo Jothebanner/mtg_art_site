@@ -1,7 +1,4 @@
 import { createEffect, createSignal, createResource, For } from "solid-js"
-import { useStore } from "@nanostores/solid";
-import { tempVar } from "../stores/Settings";
-import CardStackedVerticalList from "./CardStackedVerticalList";
 import { $searchbarFocused, $tempCards, } from "../stores/Cards";
 const ip = import.meta.env.PUBLIC_STAGING_SOLR_IP;
 

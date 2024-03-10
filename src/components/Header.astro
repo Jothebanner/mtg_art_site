@@ -1,35 +1,36 @@
 ---
 import ThemeToggle from "./ThemeToggle.jsx";
-import { tempVar } from "../stores/Settings";
-import { SITE_TITLE } from "../consts";
 import SearchBar from "./SearchBar";
 
 const { geez } = Astro.props;
 ---
 
+<!-- this is here solely for when the page refreshes or inital page load
+     it's gross, but like, fuck it -->
 <script is:inline>
-    const theme = localStorage.getItem("theme");
-    // document.documentElement.classList.add("dark");
-    if (
-        (theme === "auto" &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches) ||
-        theme === "dark"
-    ) {
-        document.documentElement.classList.add("dark");
-    } else {
-        document.documentElement.classList.remove("dark");
-    }
+  const theme = localStorage.getItem("theme");
+  // document.documentElement.classList.add("dark");
+  if (
+    (theme === "auto" &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches) ||
+    theme === "dark"
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
 </script>
+
 <div class="m-auto max-w-screen-xl w-11/12 flex justify-center">
-    <header class="flex grow p-4 relative justify-center">
-        <nav class="flex grow items-center justify-between m-auto">
-            <h1 class="flex shrink w-fit">
-                <a class="h-min" href="/">MTG Card Search Site!</a>
-            </h1>
-            <div class="flex grow lg:grow max-w-2xl mx-3">
-                <SearchBar client:visible />
-            </div>
-            <ThemeToggle client:visible />
-        </nav>
-    </header>
+  <header class="flex grow p-4 relative justify-center">
+    <nav class="flex grow items-center justify-between m-auto">
+      <h1 class="flex shrink w-fit">
+        <a class="h-min" href="/">MTG Card Search Site!</a>
+      </h1>
+      <div class="flex grow lg:grow max-w-2xl mx-3">
+        <SearchBar client:visible />
+      </div>
+      <ThemeToggle client:load />
+    </nav>
+  </header>
 </div>
