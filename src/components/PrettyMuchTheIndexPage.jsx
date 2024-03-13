@@ -1,27 +1,32 @@
-import { createEffect, createSignal } from "solid-js";
+import { createEffect } from "solid-js";
 import TempSearchResults from "./TempSearchResults.jsx";
 import BigCardAndSearchResults from "./BigCardAndSearchResults.jsx";
-import { $bigCard } from "../stores/Cards.js";
 import DeckDisplay from "./DeckDisplay.jsx";
+import { deepMap } from "nanostores";
+import { useStore } from "@nanostores/solid";
+
+// export const [selectedCard, setSelectedCard] = createSignal();
+
+export const $selectedCard = deepMap({});
 
 export const SearchIndexComponent = () => {
 
-    const [selectedCard, setSelectedCard] = createSignal(null);
+    // const [selectedCard, setSelectedCard] = createSignal(null);
+
+    const _selectedCard = useStore($selectedCard);
 
     createEffect(async () => {
         // console.log("hitting");
         const urlSearchParams = new URLSearchParams(window.location.search);
         const params = Object.fromEntries(urlSearchParams.entries());
-        // console.log("search params " + urlSearchParams);
-        console.log("params " + (Object.values(params)));
+        // console.log("params " + (Object.values(params)));
         const cardParam = urlSearchParams.get('card');
         console.log('card: ' + cardParam);
 
         if (cardParam != null) {
             const res = await fetch("https://" + 'staging.jothebanner.dev/card/' + cardParam + '.json');
             const cardData = await res.json();
-            setSelectedCard(cardData);
-            $bigCard.set(cardData);
+            $selectedCard.set(cardData);
         }
     })
 
@@ -29,7 +34,8 @@ export const SearchIndexComponent = () => {
     return (
         <div class="w-full">
             <TempSearchResults client:load />
-            {selectedCard() != null ? (
+            {console.log(_selectedCard())}
+            {_selectedCard()['name'] != undefined ? (
                 <div class="">
                     <BigCardAndSearchResults client:visible />
                 </div>

@@ -18,7 +18,6 @@ const SearchBar = () => {
     const solr_fetch = async (searchTerms) => {
         if (searchTerms !== '') {
             try {
-                // const res = await fetch(('/api/solr?name=blue'));
                 const res = await fetch("https://" + ip + "/?q=name_search:" + '\"' + searchTerms + '\"', {
                     method: "GET",
                     mode: "cors",
@@ -26,15 +25,6 @@ const SearchBar = () => {
 
                 const data = await res.json();
                 $tempCards.set(data['response']['docs']);
-                // if (data['response']['docs'][0] != undefined)
-                // {
-                //     $bigCard.set(data['response']['docs'][0]);
-                //     // console.log(data['response']['docs'][0]);
-                //     // $bigCard.set
-                //     if (data['response']['docs'][0]['normal'] != undefined)
-                //     $bigCardUrl.set(data['response']['docs'][0]['normal'][0])
-                // }
-                // theCard.set(data['response']['docs'][0]);
             } catch (error) {
                 console.error('Error:', error);
                 throw error; // Rethrow the error to handle it further if needed
