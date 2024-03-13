@@ -21,12 +21,15 @@ const CardGridList = (props) => {
                         props.handleCardClick() : null;
                     }}
                 >
-                    <div class='h-32 flex justify-start transition duration-300 bg-surface_200'>
-                        {card['small'] != undefined ?
-                            <CardImage imageUrl={card['small'][0]} growOnHover={true} />
+                    <div class='p-2 h-32 flex justify-start transition duration-300 bg-surface_200'>
+                        {/* {console.log(card['small'])} */}
+                        {card['card_id']['image_uris']['normal'] != undefined ?
+                            <CardImage imageUrl={card['card_id']['image_uris']['normal']} growOnHover={false} />
                             : ""
                         }
-                        <QuickCardDetails cardJSON={card} />
+                        <div class='hidden hover:flex'>
+                            <QuickCardDetails cardJSON={card} />
+                        </div>
                     </div>
                 </div>
                 }
