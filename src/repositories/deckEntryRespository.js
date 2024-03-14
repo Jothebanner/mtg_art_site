@@ -44,7 +44,9 @@ export class DeckEntryRepository extends Repository {
         let result;
 
         try {
-            result = await this.db.models.DeckEntry.find({ deck_id: deck_id }).populate('card_id');
+            let deckData = await this.db.models.Deck.findById(deck_id);
+            let cardsData = await this.db.models.DeckEntry.find({ deck_id: deck_id }).populate('card_id').select('card_id');
+            result = {deckData, cardsData};
             // console.log(result);
         } catch (error) {
             console.log("Result: " + result + ". Error: " + error);

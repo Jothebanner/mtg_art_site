@@ -2,15 +2,12 @@
 import TempSearchResults from "../components/TempSearchResults";
 import BigCardAndSearchResults from "../components/BigCardAndSearchResults";
 import BaseSiteLayout from "../layouts/BaseSiteLayout.astro";
+import { SearchIndexComponent } from "../components/PrettyMuchTheIndexPage";
+
+
+
 ---
 
 <BaseSiteLayout>
-  <div class="w-full">
-    <!-- <CardStackedVerticalList client:load cards={[{imageUrl: "https://cards.scryfall.io/large/front/0/0/00cb17a0-5a13-4d02-b7fb-f99531bc8ca5.jpg?1599710396"}, {imageUrl: "https://cards.scryfall.io/large/front/0/0/00cb17a0-5a13-4d02-b7fb-f99531bc8ca5.jpg?1599710396"}]} /> -->
-    <!-- <CardImage client:load imageUrl={"https://cards.scryfall.io/large/front/0/0/00cb17a0-5a13-4d02-b7fb-f99531bc8ca5.jpg?1599710396"}>Uhhh</CardImage> -->
-    <TempSearchResults client:load />
-    <div class="">
-      <BigCardAndSearchResults client:visible />
-    </div>
-  </div>
+  <SearchIndexComponent client:load />
 </BaseSiteLayout>
