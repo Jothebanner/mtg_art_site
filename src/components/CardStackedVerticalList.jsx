@@ -21,6 +21,11 @@ const CardStackedVerticalList = (props) => {
                         // I don't fully understand it, but it has to do with how solidjs tracks reactivity.
                         let deepCopy = JSON.parse(JSON.stringify(card));
                         $selectedCard.set(deepCopy);
+                        
+                        let cardName = deepCopy.name[0].replaceAll(' ', '_')
+                        window.history.pushState({deepCopy}, '', '/?card=' + cardName);
+
+
                         props.handleCardClick != undefined ?
                         props.handleCardClick() : null;
                     }}
