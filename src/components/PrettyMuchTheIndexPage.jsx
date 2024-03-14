@@ -19,7 +19,6 @@ export const SearchIndexComponent = () => {
         // console.log("hitting");
         const urlSearchParams = new URLSearchParams(window.location.search);
         const params = Object.fromEntries(urlSearchParams.entries());
-        // console.log("params " + (Object.values(params)));
         const cardParam = urlSearchParams.get('card');
         console.log('card: ' + cardParam);
 

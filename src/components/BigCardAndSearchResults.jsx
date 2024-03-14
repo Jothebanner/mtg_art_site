@@ -1,8 +1,8 @@
-import { Show, createEffect, createSignal } from "solid-js";
+import { Show, createSignal } from "solid-js";
 import BigCardDetails from "./BigCardDetails";
 import SlideDownSearchResults from "./SlideDownSearchResults";
 import { useStore } from "@nanostores/solid";
-import { $bigCard, $slideCards } from "../stores/Cards";
+import { $slideCards } from "../stores/Cards";
 import { $selectedCard } from "./PrettyMuchTheIndexPage.jsx";
 
 const BigCardAndSearchResults = (props) => {

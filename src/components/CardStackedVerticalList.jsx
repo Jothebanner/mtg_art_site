@@ -1,5 +1,3 @@
-import { Index, untrack } from 'solid-js';
-import { $bigCard, $slideCards, $tempCards } from '../stores/Cards';
 import CardImage from './CardImage';
 import QuickCardDetails from './QuickCardDetails';
 import { useStore } from '@nanostores/solid';
