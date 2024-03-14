@@ -1,4 +1,4 @@
-import { createEffect } from "solid-js";
+import { createEffect, onCleanup } from "solid-js";
 import TempSearchResults from "./TempSearchResults.jsx";
 import BigCardAndSearchResults from "./BigCardAndSearchResults.jsx";
 import DeckDisplay from "./DeckDisplay.jsx";
@@ -15,6 +15,23 @@ export const SearchIndexComponent = () => {
 
     const _selectedCard = useStore($selectedCard);
 
+    createEffect(() => {
+
+        window.addEventListener('popstate', event => 
+        {
+            console.log(event.state);
+            $selectedCard.set(event.state.deepCopy);
+        })
+
+        onCleanup(() => {
+            window.removeEventListener('popstate', event => 
+            {
+                console.log(event.state);
+                $selectedCard.set(event.state.deepCopy);
+            })
+        })
+    })
+
     createEffect(async () => {
         // console.log("hitting");
         const urlSearchParams = new URLSearchParams(window.location.search);
@@ -22,11 +39,16 @@ export const SearchIndexComponent = () => {
         const cardParam = urlSearchParams.get('card');
         console.log('card: ' + cardParam);
 
+        // this has got some sort of big boi bug... idk I don't really want to deal with it right now.
         if (cardParam != null) {
             const res = await fetch("https://" + 'staging.jothebanner.dev/card/' + cardParam + '.json');
             const cardData = await res.json();
             $selectedCard.set(cardData);
+            let cardName = cardData.name[0].replaceAll(' ', '_');
+            window.history.replaceState({deepCopy:cardData}, '', '/?card=' + cardName);
         }
+        else
+            window.history.replaceState({deepCopy:{}}, '', '/');
     })
 
 
