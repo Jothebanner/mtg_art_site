@@ -1,22 +1,21 @@
-import { Show, createEffect, createSignal } from "solid-js";
+import { Show, createSignal } from "solid-js";
 import BigCardDetails from "./BigCardDetails";
 import SlideDownSearchResults from "./SlideDownSearchResults";
 import { useStore } from "@nanostores/solid";
-import { $bigCard, $slideCards } from "../stores/Cards";
+import { $slideCards } from "../stores/Cards";
+import { $selectedCard } from "./PrettyMuchTheIndexPage.jsx";
 
 const BigCardAndSearchResults = (props) => {
     const [cards, setcards] = createSignal();
 
-    const mainCard = useStore($bigCard);
+    const _selectedCard = useStore($selectedCard);
     const sideCards = useStore($slideCards);
-
-    $bigCard.listen(() => console.log($bigCard.get()));
 
     return (
         <div class='flex '>
             <div class='w-4/5 bg-surface_200 rounded-2xl '>
-                <Show when={mainCard()['name'] != undefined} >
-                    <BigCardDetails card={mainCard()} />
+                <Show when={_selectedCard()['name'] != undefined} >
+                    <BigCardDetails card={_selectedCard()} />
                 </Show>
             </div>
             <div class='w-1/5'>
