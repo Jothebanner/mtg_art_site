@@ -9,17 +9,23 @@ const { geez } = Astro.props;
 <!-- this is here solely for when the page refreshes or inital page load
      it's gross, but like, fuck it -->
 <script is:inline>
-	const theme = localStorage.getItem("theme");
-	// document.documentElement.classList.add("dark");
-	if (
-		(theme === "auto" &&
-			window.matchMedia("(prefers-color-scheme: dark)").matches) ||
-		theme === "dark"
-	) {
-		document.documentElement.classList.add("dark");
-	} else {
-		document.documentElement.classList.remove("dark");
-	}
+	const setTheme = () => {
+		const theme = localStorage.getItem("settingstheme");
+		console.log("theme: " + theme)
+		if (
+			(theme === "auto" &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches) ||
+			theme === "dark"
+		) {
+			document.documentElement.classList.add("dark");
+		} else {
+			document.documentElement.classList.remove("dark");
+		}
+	};
+
+	setTheme();
+
+	document.addEventListener('astro:before-swap', setTheme);
 </script>
 
 <div class="m-auto max-w-screen-xl w-11/12 flex justify-center">
