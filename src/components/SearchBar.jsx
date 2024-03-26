@@ -1,6 +1,6 @@
 import { createEffect, createSignal, createResource, For } from "solid-js"
 import { $searchbarFocused, $tempCards, } from "../stores/Cards";
-const ip = import.meta.env.PUBLIC_STAGING_SOLR_IP;
+const solr_ip = import.meta.env.PUBLIC_STAGING_SOLR_IP;
 
 const SearchBar = () => {
     const [searchTerms, setSearchTerms] = createSignal(null);
@@ -18,7 +18,7 @@ const SearchBar = () => {
     const solr_fetch = async (searchTerms) => {
         if (searchTerms !== '') {
             try {
-                const res = await fetch("https://" + ip + "/?q=name_search:" + '\"' + searchTerms + '\"', {
+                const res = await fetch("https://" + solr_ip + "/?q=name_search:" + '\"' + searchTerms + '\"', {
                     method: "GET",
                     mode: "cors",
                 });

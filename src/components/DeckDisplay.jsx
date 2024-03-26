@@ -15,7 +15,7 @@ const DeckDisplay = (props) => {
             setCards(data.cardsData);
             setDeck(data.deckData);
             console.log(cards())
-            console.log(deck().name)
+            // console.log(deck().name)
         }
     })
 
