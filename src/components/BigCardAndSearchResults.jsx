@@ -14,6 +14,8 @@ const BigCardAndSearchResults = (props) => {
     return (
         <div class='flex '>
             <div class='w-4/5 bg-surface_200 rounded-2xl '>
+                {/* {console.log("the card")}
+                {console.log(_selectedCard())} */}
                 <Show when={_selectedCard()['name'] != undefined} >
                     <BigCardDetails card={_selectedCard()} />
                 </Show>

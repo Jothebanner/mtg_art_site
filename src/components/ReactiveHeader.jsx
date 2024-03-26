@@ -18,6 +18,7 @@ const ReactiveHeader = () => {
                 <SearchBar client:visible />
             </div>
             <ThemeToggle client:load />
+            <a href={'/decks'}>My Decks! :D</a>
         </nav>
     );
 }

@@ -29,24 +29,14 @@ const CardImage = (props) => {
                     <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-blue-500 border-r-2 border-b-2 border-gray-300"></div>
                 </div>
                 : */}
-            {props.growOnHover ?
-                <img
-                    class={`cardWidth relative cardImage h-auto max-h-full hover:z-10 hover:scale-250 object-scale-down transition-transform transform-gpu duration-200`}
-                    alt="Card Image"
-                    src={props.imageUrl}
-                /> : props.small ?
-                    <img
-                        class={`cardWidth relative cardImage h-auto max-h-full`}
-                        alt="Card Image"
-                        src={props.imageUrl}
-                    />
-                    :
-                    <img
-                        class={`relative cardImage h-auto max-h-full`}
-                        alt="Card Image"
-                        src={props.imageUrl}
-                    />
-            }
+            <img
+                class={
+                    (props.growOnHover ? 'hover:scale-250 hover:z-10 object-scale-down transition-transform transform-gpu duration-200' : '') +
+                    (props.small ? 'cardWidth ' : '') +
+                    ` relative cardImage h-auto max-h-full `}
+                alt="Card Image"
+                src={props.imageUrl}
+            />
         </div>
     );
 };
