@@ -43,15 +43,14 @@ const CardStackedVerticalList = (props) => {
                         
                         
                         // $selectedCard.set(deepCopy); //// replacing this with the request from the mongodb server
-                        // I will weep with joy if this 'just' works
+                        // I will weep with joy if this "just" works
                         requestCard(deepCopy.scryfall_id[0]);
 
                         window.history.pushState({deepCopy}, '', '/?card=' + deepCopy.scryfall_id[0]);
 
 
 
-                        props.handleCardClick != undefined ?
-                        props.handleCardClick() : null;
+                        props.handleCardClick != undefined ? props.handleCardClick() : null;
                     }}
                 >
                     <div class='h-20 flex justify-start transition duration-300 bg-surface_200'>

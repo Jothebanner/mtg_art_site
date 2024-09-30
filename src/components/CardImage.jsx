@@ -3,6 +3,8 @@ import { createSignal, createEffect } from 'solid-js';
 import '../styles/tailwind.css';
 import { cSize } from './CardSizes';
 
+// TODO: Back of card
+
 const CardImage = (props) => {
     const [isLoading, setIsLoading] = createSignal(true);
 

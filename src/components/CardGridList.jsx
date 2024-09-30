@@ -12,7 +12,7 @@ const CardGridList = (props) => {
             <For each={props.cards}>
                 {(card) =>
                     <div
-                        class={'rounded-md hov_accent hover:cursor-pointer '}
+                        class="rounded-md hov_accent hover:cursor-pointer "
                         onClick={(e) => {
                             let deepCopy = JSON.parse(JSON.stringify(card));
                             $selectedCard.set(deepCopy.card_id);
@@ -28,9 +28,9 @@ const CardGridList = (props) => {
                     >
                         <div class="p-1 bg-surface_200">
                             <div class='transition duration-300 bg-surface_200 max-w-28'>
-                                {card['card_id']['image_uris']['normal'] != undefined ?
+                                {card['card_id']['image_uris'] != undefined && card['card_id']['image_uris']['normal'] != undefined ?
                                     <CardImage imageUrl={card['card_id']['image_uris']['normal']} growOnHover={true} />
-                                    : ""
+                                    : <CardImage imageUrl={card['card_id']['card_faces'][0]['image_uris']['normal']} growOnHover={true} />
                                 }
                                 <div class='hover:flex'>
                                     <QuickCardDetails cardJSON={card} />

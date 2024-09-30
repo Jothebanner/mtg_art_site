@@ -1,0 +1,25 @@
+.rotateBase {
+    transition: all 1s cubic-bezier(0.475, 0.285, 0.1, 1.1);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.cardInner {
+    position: relative;
+
+}
+
+.flipBaseFront, .flipBaseBack {
+    transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 1);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.flipBaseFront {
+}
+
+.flipBaseBack {
+    transform: rotateY(-180deg);
+}
